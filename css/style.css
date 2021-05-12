@@ -1,0 +1,28 @@
+  
+* {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .wrapper {
+    width: 800px;
+    min-height: 400px;
+    position: relative;
+    background: rgb(190, 190, 245);
+    border: 2px rgb(77, 72, 110) solid;
+  }
+  
+  .container {
+    margin-left: 300px;
+    margin-top: 10px;
+  }
+  
+  .container-antsmash{
+    margin-left: 300px;
+    margin-top: 20px;
+  }
+  
+  h2{
+    margin-top: 20px;
+    text-align: center;
+  }
