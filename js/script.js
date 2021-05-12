@@ -6,7 +6,7 @@ const MAX_RADIUS = 15;
 const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 400;
 const TOTAL_BALLS = 20;
-const COLORS = ['red','green','yellow','pink','blue'];
+const COLORS = ['red','green','yellow','pink','blue','orange','black','purple','gray'];
 const VELOCITY = 1;
 
 
@@ -107,19 +107,12 @@ var Ball = function(wrapper,isAntSmash){
  
   this.animateAndCheckCollision = function(balls){
 
-    // Update x and y
+  
     this.x += this.velocity * this.direction.x;
     this.y += this.velocity * this.direction.y;
     
-
-
-    // Check collision with boundary
     this.checkCollisionWithBoundary();
-
-    //Check collision with other balls
     this.checkCollision(balls);
-
-    //draw / render
     this.draw();
   }
 
@@ -147,7 +140,9 @@ var Ball = function(wrapper,isAntSmash){
     for (var i = 0; i < balls.length; i++) {
         var ball = balls[i];
 
-        // checking collision with other balls than current ball
+       
+
+
         var currentBall = this.element;
         var otherBalls = ball.element;
         
@@ -158,7 +153,8 @@ var Ball = function(wrapper,isAntSmash){
             var dy = this.y - ball.y;
             var distance = Math.sqrt(dx * dx + dy * dy);
 
-            //set direction after collision
+
+           
             if (distance < this.radius + ball.radius) {
                 if (dx > 0) {
                     this.direction.x = 1;
@@ -176,9 +172,7 @@ var Ball = function(wrapper,isAntSmash){
                     ball.direction.y = 1;
                 }
 
-                // if (this.radius < ball.radius) {
-                //     this.speed = this.velocity * Math.ceil(ball.radius / this.radius);
-                // }
+               
 
             }
         }
@@ -213,9 +207,10 @@ var Start = function(wrapper,isAntSmash){
   this.createBalls = function(){
     for(var i = 0; i < TOTAL_BALLS; i++){
       var ball;
-      //considering ball is always overlapped with ball already existing
+      
       var overLapped = true;
-      //Dont return if newly created ball overlaps with other.
+     
+
       while(overLapped){
         ball = new Ball(this.element,isAntSmash);
 
@@ -242,9 +237,6 @@ var Start = function(wrapper,isAntSmash){
     33.33 );
     }
   
-
-  //Render ball, move and check for collisions
-
   this.createBalls();
   this.animateBallAndCheckCollision();
 
